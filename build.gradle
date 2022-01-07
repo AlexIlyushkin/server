@@ -1,6 +1,7 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.5.31'
     id 'java-library'
+    id 'jacoco'
 }
 
 group 'ru.ilyushkin'
@@ -22,3 +23,11 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
+}
+
+check.dependsOn jacocoTestReport
